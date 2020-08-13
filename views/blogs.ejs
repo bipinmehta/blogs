@@ -1,0 +1,20 @@
+<%- include("header") -%>
+<div class="container">
+  <br />
+  <a
+    href="/compose"
+    class="btn-new btn btn--green active"
+    role="button"
+    aria-pressed="true"
+    >New
+  </a>
+  <h1><%= title %></h1>
+  <br />
+  <%for (let i=0; i < newBlogHeading.length; i++) {%>
+  <h2><%= newBlogHeading[i] %></h2>
+  <p><%= newBlog[i] %></p>
+  <% } %>
+</div>
+<div>
+  <%- include("footer") -%>
+</div>

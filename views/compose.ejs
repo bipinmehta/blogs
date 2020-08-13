@@ -1,0 +1,53 @@
+<%- include("header") -%>
+<div class="container">
+  <h1><%= title %></h1>
+  <form class="form_group" action="/update" method="post">
+    <label class="form_label" for="heading">Blog heading</label>
+    <input
+      id="heading"
+      name="heading"
+      class="form_input"
+      type="text"
+      required
+      autofocus
+    />
+    <label class="form_label" for="blog">Write your blog</label>
+    <textarea
+      class="form_input"
+      id="blog"
+      name="blog"
+      maxlength="400"
+      rows="5"
+      cols="60"
+    ></textarea>
+    <p><span id="wordCount">0</span> characters balance</p>
+    <br />
+    <!-- <a
+      href="/upload"
+      class="btn btn--green active"
+      role="button"
+      aria-pressed="true"
+      >Upload</a
+    > -->
+    <script>
+      const myText = document.getElementById('blog');
+      const wordCount = document.getElementById('wordCount');
+
+      let characters = [];
+      myText.addEventListener('keydown', function () {
+        characters = myText.value.split('');
+        wordCount.innerText = 400 - characters.length;
+      });
+    </script>
+    <button
+      id="blog_save"
+      class="btn btn--green"
+      type="submit"
+      name="blog_save"
+    >
+      Upload
+    </button>
+  </form>
+</div>
+
+<%- include('footer') -%>
